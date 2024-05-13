@@ -2,7 +2,7 @@ package com.RK.AutoExcer.pages;
 import com.microsoft.playwright.Page;
 
 public class HomePage {
-    protected Page page;
+    private Page page;
     //1.String Locators_OR(object repository)
     private String productsPage="a[href='/products']";
     private String signUpLoginPage = "a[href='/login']";
@@ -23,12 +23,11 @@ public class HomePage {
         System.out.println("page url : " + url);
         return url;
     }
-    //ceate page action ofr login
-//    public LoginPage navigateToSignUpLogin(){
-//        page.click(myAccountLink);
-//        page.click(loginLink);//when wver we have to click on something and new page ,
-//        // then this method responsiblity to return next landing page , then change void to return page
-//        //or u can use pagelocator.click
-//        return new LoginPage(page);
-//    }
+    //ceate page action for login
+    public LoginPage navigateToSignUpLogin(){
+        page.click(signUpLoginPage);//when ever we have to click on something and new page ,
+        // then this method responsiblity to return next landing page , then change void to return page
+        //or u can use pagelocator.click
+        return new LoginPage(page);
+    }
 }
