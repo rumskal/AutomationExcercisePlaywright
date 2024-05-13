@@ -1,9 +1,8 @@
 package com.RK.AutoExcer.test;
 import com.RK.AutoExcer.base.BaseTest;
-
 import com.RK.AutoExcer.constants.AppConstants;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.*;
+
  @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
     public class LoginPageTest extends BaseTest {
         @Test
@@ -18,7 +17,19 @@ import org.junit.jupiter.api.*;
      @Order(2)
      public void appLoginTest(){
            Assertions.assertTrue(loginPage.loginAsUser(prop.getProperty("username").trim(),prop.getProperty("password").trim()));
+     }
 
+     @Test
+     @Order(3)
+     public void logoutTest(){
+         Assertions.assertTrue(loginPage.logout());
 
+     }
+
+     @Test
+     @Order(4)
+     public void wrongPasswordLoginTest(){
+     loginPage = homePage.navigateToSignUpLogin();
+         Assertions.assertEquals(loginPage.invalidUserLogin(prop.getProperty("username").trim(),prop.getProperty("wrongPassword").trim()), AppConstants.LOGIN_ERROR_TITLE);
      }
 }
