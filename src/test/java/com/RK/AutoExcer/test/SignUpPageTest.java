@@ -10,24 +10,36 @@ import org.junit.jupiter.api.Test;
 public class SignUpPageTest extends BaseTest {
     @Test
     @Order(1)
-    public void newSignUpTest(){
-        loginPage = homePage.navigateToLoginPage();
-        signupPage = loginPage.navigateToSignUpPage(prop.getProperty("registername").trim(),
-        prop.getProperty("registeremailID").trim());
-
-        String actualRegisterPageTitle = loginPage.getMessage();
-        Assertions.assertEquals(actualRegisterPageTitle, "Enter Account Information");
-    }
-    @Test
-    @Order(2)
-    public void newSignUpInformationTest(){
+    public void newSignUpTest() {
         loginPage = homePage.navigateToLoginPage();
         signupPage = loginPage.navigateToSignUpPage(prop.getProperty("registername").trim(),
                 prop.getProperty("registeremailID").trim());
 
-        Assertions.assertTrue(signupPage.registerDetails(prop.getProperty("registerPassword").trim(),prop.getProperty("birthdate").trim(),
-                prop.getProperty("birthmonth").trim(),prop.getProperty("birthyear").trim(),prop.getProperty("firstName").trim(),prop.getProperty("lastName").trim(),prop.getProperty("company").trim(),
-                prop.getProperty("address1").trim(),prop.getProperty("address2").trim(),prop.getProperty("country").trim(),prop.getProperty("state").trim(),prop.getProperty("city").trim(),prop.getProperty("zipcode").trim(),
-                prop.getProperty("mobileNumber").trim()),AppConstants.REGISTRATION_PAGE);
+        String actualRegisterPageTitle = loginPage.getMessage();
+        Assertions.assertEquals(actualRegisterPageTitle, "Enter Account Information");
+    }
+
+    @Test
+    @Order(2)
+    public void newSignUpInformationTest() {
+        loginPage = homePage.navigateToLoginPage();
+        signupPage = loginPage.navigateToSignUpPage(prop.getProperty("registername").trim(),
+                prop.getProperty("registeremailID").trim());
+
+        Assertions.assertTrue(signupPage.registerDetails(prop.getProperty("registerPassword").trim(), prop.getProperty("birthdate").trim(),
+                prop.getProperty("birthmonth").trim(), prop.getProperty("birthyear").trim(), prop.getProperty("firstName").trim(), prop.getProperty("lastName").trim(), prop.getProperty("company").trim(),
+                prop.getProperty("address1").trim(), prop.getProperty("address2").trim(), prop.getProperty("country").trim(), prop.getProperty("state").trim(), prop.getProperty("city").trim(), prop.getProperty("zipcode").trim(),
+                prop.getProperty("mobileNumber").trim()), AppConstants.REGISTRATION_PAGE);
+    }
+
+    @Test
+    @Order(3)
+    public void existingEmailIdUserSignUpTest() {
+        loginPage = homePage.navigateToLoginPage();
+        signupPage = loginPage.navigateToSignUpPage(prop.getProperty("registername").trim(),
+                prop.getProperty("username").trim());
+
+        String actualErrorMessage = loginPage.getExistingEmailAddressMessage();
+        Assertions.assertEquals(actualErrorMessage, "Email Address already exist!");
     }
 }

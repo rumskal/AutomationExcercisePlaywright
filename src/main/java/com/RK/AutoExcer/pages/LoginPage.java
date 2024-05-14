@@ -15,6 +15,7 @@ public class LoginPage {
     private String newUserEmailId = "input[data-qa='signup-email']";
     private String signUpButton = "button[data-qa='signup-button']";
     private String registerPageMessage = "//b[contains(.,'Enter Account Information')]";
+    private String existingEmailIDUser = "//p[normalize-space()='Email Address already exist!']";
 
     //2.Page Constructor and its purpose
     public LoginPage(Page page){
@@ -55,6 +56,11 @@ public class LoginPage {
     public String getMessage(){
         String regisMessage =  page.textContent(registerPageMessage);
         return regisMessage;
+
+    }
+    public String getExistingEmailAddressMessage(){
+        String existingEmailIDMessage =  page.textContent(existingEmailIDUser);
+        return existingEmailIDMessage;
 
     }
 
