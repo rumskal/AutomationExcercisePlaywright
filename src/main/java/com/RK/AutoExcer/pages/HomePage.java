@@ -5,7 +5,7 @@ public class HomePage {
     private Page page;
     //1.String Locators_OR(object repository)
     private String productsPage="a[href='/products']";
-    private String signUpLoginPage = "a[href='/login']";
+    private String loginPage = "a[href='/login']";
     private String contactUS = "//a[normalize-space()='Contact us']";
 
     //2.Page Constructor and its purpose
@@ -24,8 +24,8 @@ public class HomePage {
         return url;
     }
     //ceate page action for login
-    public LoginPage navigateToSignUpLogin(){
-        page.click(signUpLoginPage);//when ever we have to click on something and new page ,
+    public LoginPage navigateToLoginPage(){
+        page.click(loginPage);//when ever we have to click on something and new page ,
         // then this method responsiblity to return next landing page , then change void to return page
         //or u can use pagelocator.click
         return new LoginPage(page);

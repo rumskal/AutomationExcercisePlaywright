@@ -3,11 +3,9 @@ package com.RK.AutoExcer.base;
 import com.RK.AutoExcer.factory.PlaywrightFactory;
 import com.RK.AutoExcer.pages.HomePage;
 import com.RK.AutoExcer.pages.LoginPage;
-import com.RK.AutoExcer.pages.RegisterUser;
+import com.RK.AutoExcer.pages.SignUpPage;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.junit.UsePlaywright;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.TestInstance;
@@ -20,7 +18,7 @@ public class BaseTest {
     protected static Properties prop;
     protected HomePage homePage;
     protected LoginPage loginPage;
-    protected RegisterUser registerUser;
+    protected SignUpPage signupPage;
     protected static PlaywrightFactory pf;//create obj of playwright factory class
 
     @BeforeAll

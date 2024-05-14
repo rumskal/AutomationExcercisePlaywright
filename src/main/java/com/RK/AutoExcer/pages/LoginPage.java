@@ -46,12 +46,16 @@ public class LoginPage {
         page.click(loginBtn);
         return page.textContent(errorMessageWrongLogin);
     }
-    public String newUserSignUP(String name, String emailID){
+    public SignUpPage navigateToSignUpPage(String name, String emailID){
         page.fill(newUserName,name);
         page.fill(newUserEmailId,emailID);
         page.click(signUpButton);
+        return new SignUpPage(page);
+    }
+    public String getMessage(){
         String regisMessage =  page.textContent(registerPageMessage);
         return regisMessage;
+
     }
 
 }

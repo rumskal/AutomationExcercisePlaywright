@@ -9,7 +9,7 @@ import org.junit.jupiter.api.*;
         @Test
         @Order(1)
         public void loginPageNavigationTest(){
-            loginPage = homePage.navigateToSignUpLogin();
+            loginPage = homePage.navigateToLoginPage();
             String actualLoginPageTitle = loginPage.getLoginPageTitle();
             System.out.println("The page actual title page:" + actualLoginPageTitle);
             Assertions.assertEquals(actualLoginPageTitle, AppConstants.LOGIN_PAGE_TITLE);
@@ -30,7 +30,7 @@ import org.junit.jupiter.api.*;
      @Test
      @Order(4)
      public void wrongPasswordLoginTest(){
-     loginPage = homePage.navigateToSignUpLogin();
+     loginPage = homePage.navigateToLoginPage();
          Assertions.assertEquals(loginPage.invalidUserLogin(prop.getProperty("username").trim(),prop.getProperty("wrongPassword").trim()), AppConstants.LOGIN_ERROR_TITLE);
      }
 }
