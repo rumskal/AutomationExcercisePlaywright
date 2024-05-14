@@ -11,6 +11,10 @@ public class LoginPage {
     private String loggedAs = "//a[contains(text(),'Logged in as')]";
     private String errorMessageWrongLogin = "//p[normalize-space()='Your email or password is incorrect!']";
     private String logoutBtn = "a[href='/logout']";
+    private String newUserName = "input[type = \"text\"]";
+    private String newUserEmailId = "input[data-qa='signup-email']";
+    private String signUpButton = "button[data-qa='signup-button']";
+    private String registerPageMessage = "//b[contains(.,'Enter Account Information')]";
 
     //2.Page Constructor and its purpose
     public LoginPage(Page page){
@@ -41,6 +45,13 @@ public class LoginPage {
         page.fill(passwords,appPassword);
         page.click(loginBtn);
         return page.textContent(errorMessageWrongLogin);
+    }
+    public String newUserSignUP(String name, String emailID){
+        page.fill(newUserName,name);
+        page.fill(newUserEmailId,emailID);
+        page.click(signUpButton);
+        String regisMessage =  page.textContent(registerPageMessage);
+        return regisMessage;
     }
 
 }

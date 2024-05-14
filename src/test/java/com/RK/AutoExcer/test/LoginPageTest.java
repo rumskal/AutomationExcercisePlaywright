@@ -5,6 +5,7 @@ import org.junit.jupiter.api.*;
 
  @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
     public class LoginPageTest extends BaseTest {
+
         @Test
         @Order(1)
         public void loginPageNavigationTest(){

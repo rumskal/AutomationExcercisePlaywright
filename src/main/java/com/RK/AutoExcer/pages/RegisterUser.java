@@ -6,11 +6,7 @@ public class RegisterUser {
     private Page page;
 
     //1.String Locators_OR(object repository)
-    private String newUserName = "input[type = \"text\"] ";
-    private String newUserEmailId = "input[data-qa = \"login-email\"] ";
-    private String signUpButton = "button[data-qa='signup-button']";
-    private String registerPageMessage = "//b[contains(.,'Enter Account Information')]";
-    private String tilteRadioButton1 ="id_gender1";
+      private String tilteRadioButton1 ="id_gender1";
     private String tilteRadioButton2 ="uniform-id_gender2";
     private String password = "//input[@data-qa='login-password']";
     private String birthDate = "[id = 'days']";
@@ -35,8 +31,7 @@ public class RegisterUser {
         this.page = page;
     }
 
-    //3. Page actions/methods: navagate to relevant pages and return
-    public String getRegisterPageTitle(){
-        return page.title();
-    }
+    //3. Page actions/methods: navigate to relevant pages and return
+
+
 }

@@ -3,6 +3,7 @@ package com.RK.AutoExcer.base;
 import com.RK.AutoExcer.factory.PlaywrightFactory;
 import com.RK.AutoExcer.pages.HomePage;
 import com.RK.AutoExcer.pages.LoginPage;
+import com.RK.AutoExcer.pages.RegisterUser;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.junit.UsePlaywright;
 import io.cucumber.java.After;
@@ -19,6 +20,7 @@ public class BaseTest {
     protected static Properties prop;
     protected HomePage homePage;
     protected LoginPage loginPage;
+    protected RegisterUser registerUser;
     protected static PlaywrightFactory pf;//create obj of playwright factory class
 
     @BeforeAll
